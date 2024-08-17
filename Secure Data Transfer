@@ -1,0 +1,39 @@
+Here’s the content formatted specifically for GitHub markdown:
+
+---
+#Task: Securely Transfer Confidential Data from Jump Server to App Server 2
+A Nautilus developer has stored confidential data on the jump host within Stratos DC. To ensure security and compliance, this data must be transferred to one of the app servers. Since developers lack direct access to these servers, the system admin team has been enlisted for assistance. Your goal is to securely copy the file `/tmp/nautilus.txt.gpg` from the jump server to **App Server 2**, placing it in the directory `/home/data`.
+
+---
+## Steps to Accomplish This:
+We will use the `scp` (Secure Copy) command via SSH to transfer the file. The `scp` command allows secure file transfers between hosts over the network.
+---
+### 🔧 Command Syntax:
+```bash
+scp /local-server-file-path/filename remote-server-username@hostname:/remote-server-file-path
+```---
+### 🧪 Dry Run:
+Before transferring the file, ensure the following:
+1. **Check SSH Connection:**  
+   Verify if the SSH connection to the remote server is working.
+   ```bash
+   ssh steve@stapp02.stratos.xfusioncorp.com
+   ```
+2. **Check Disk Storage on the Remote Server:**  
+   Ensure there is enough space on the target directory:
+   ```bash
+   df -h
+   ```
+If both checks are successful, proceed to the actual transfer.
+
+---
+### 🚀 Transfer Command:
+Use the `scp` command to securely copy the file from the jump server to App Server 2:
+```bash
+scp /tmp/nautilus.txt.gpg steve@stapp02.stratos.xfusioncorp.com:/home/data
+```
+
+---
+Now you're ready to securely transfer the confidential file! 🎉
+
+---
