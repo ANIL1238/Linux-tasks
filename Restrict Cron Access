@@ -1,0 +1,22 @@
+Here's an improved version for your GitHub with SEO-friendly formatting, emojis, and clean grammar:
+---
+## 🛡️ Restricting Crontab Access for Compliance
+
+To ensure alignment with security compliance standards, the Nautilus project team has decided to impose restrictions on **crontab** access. Only specific users are permitted to create or update cron jobs. In this case, we'll configure crontab access on **App Server 3** to **allow** `rose` and **deny** `garrett`.
+
+### 🛠️ Configuration Steps:
+
+We use the `/etc/cron.allow` and `/etc/cron.deny` files in Linux to control access to crontab. This mechanism allows system administrators to restrict specific users from accessing the `crontab` command.
+--- sudo su 
+
+1. **Allow crontab access** to the `rose` user:
+   ```bash
+   echo "rose" >> /etc/cron.allow
+   ```
+2. **Deny crontab access** to the `garrett` user:
+   ```bash
+   echo "garrett" >>/etc/cron.deny
+   ```
+---
+By following these steps, we've successfully restricted crontab access while ensuring compliance with our security standards. 🚀
+---
