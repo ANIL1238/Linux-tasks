@@ -1,3 +1,10 @@
 n the daily standup, it was noted that the timezone settings across the Nautilus Application Servers in the Stratos Datacenter are inconsistent with the local datacenter's
 timezone,
 currently set to America/Kralendijk.
+
+---> to see the timezone command
+timedatectl
+---> to see the list of timezone
+timedatectl list-timezones
+---> to set the time time zone we weanted
+timedatectl set-timezone Africa/Cairo
