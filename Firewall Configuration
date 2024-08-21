@@ -1,0 +1,67 @@
+Certainly! Here's how you can structure the requirements in a point-wise manner with a bit of UI flair and emojis, perfect for a GitHub README or a configuration file.
+
+---
+
+### 📌 **Nautilus Backup Server Configuration Requirements**
+
+The Nautilus System Admins team has recently rolled out a web UI application for their backup utility. This application operates on port **5003** and is running on the Nautilus backup server within the Stratos Datacenter. To ensure smooth operation, the following tasks need to be performed:
+
+---
+
+### 🔥 **1. Ensure Firewalld is Active**
+
+- **Task**: Confirm that `firewalld` is running on the server.
+- **Command**:
+
+ssh clint@172.16.238.16
+
+  ```bash
+  sudo systemctl status firewalld
+  ```
+  - If not active, start and enable it with:
+    ```bash
+    sudo systemctl start firewalld
+    sudo systemctl enable firewalld
+    ```
+
+---
+
+### 🌐 **2. Open Port 5003**
+
+- **Task**: Allow incoming traffic on port **5003** to ensure the web UI application is accessible.
+- **Command**:
+  ```bash
+  sudo firewall-cmd --zone=public --add-port=5003/tcp --permanent
+  ```
+  - **Note**: `--permanent` ensures the rule persists across reboots.
+
+---
+
+### 💾 **3. Reload Firewall Configuration**
+
+- **Task**: Apply the firewall changes to activate the new rule.
+- **Command**:
+  ```bash
+  sudo firewall-cmd --reload
+  ```
+
+---
+
+### ✅ **4. Verify the Port is Open**
+
+- **Task**: Confirm that port **5003** is now open and accessible.
+- **Command**:
+  ```bash
+  sudo firewall-cmd --zone=public --query-port=5003/tcp
+  ```
+  - **Expected Output**: `yes`
+
+---
+
+### 📋 **Summary**
+
+By following these steps, the Nautilus backup server's web UI application will be properly accessible on port **5003** while ensuring that the firewall settings are correctly configured and persistent.
+
+---
+
+Feel free to include this in your GitHub README or configuration file to ensure clarity and effective documentation of the configuration steps.
