@@ -1,0 +1,45 @@
+Certainly! Here's your request with the correct grammar and formatting, along with the original question included:
+
+---
+
+### Task Description
+
+In the Stratos Datacenter, our Storage server is encountering performance degradation due to excessive processes held by the `nfsuser` user. To mitigate this issue, we need to enforce limitations on its maximum processes. The requirements are as follows:
+
+- **Soft limit:** 1024
+- **Hard limit:** 2024
+
+We need to add these limits to the `/etc/security/limits.conf` file.
+
+### Steps to Implement the Solution
+
+1. **Open the Limits Configuration File**  
+   Access the `/etc/security/limits.conf` file using a text editor with administrative privileges:
+
+   ```bash
+   sudo nano /etc/security/limits.conf
+   ```
+
+2. **Set the Soft and Hard Limits**  
+   Scroll to the end of the file and add the following lines to define the process limits for the `nfsuser`:
+
+   ```
+   nfsuser soft nproc 1024  # Set the soft limit to 1024 processes.
+   nfsuser hard nproc 2024  # Set the hard limit to 2024 processes.
+   ```
+
+3. **Save and Exit**  
+   After making the changes, save the file and exit the editor:
+   - For Nano: Press `CTRL + X`, then `Y` to confirm, and `Enter` to save.
+   - For Vim: Press `Esc`, then type `:wq` and press `Enter` to save and exit.
+
+4. **Verification**  
+   To ensure the limits are applied correctly, you can check the current limit for the `nfsuser` by running:
+
+   ```bash
+   ulimit -u 1500  # Verifies that the current process limit is applied correctly.
+   ```
+
+This process helps in controlling the system's performance by capping the number of processes the `nfsuser` can create. 😊
+
+---
